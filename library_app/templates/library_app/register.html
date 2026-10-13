@@ -1,0 +1,30 @@
+{% extends 'library_app/base.html' %}
+
+{% block title %}Register | Parach School Library{% endblock %}
+
+{% block content %}
+<div class="form-page narrow">
+    <h1>Create an Account</h1>
+    <form method="post" class="styled-form">
+
+        {% csrf_token %}
+        {% for field in form %}
+
+            <div class="form-group">
+            
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+                {{ field }}
+
+                {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
+
+                {% for error in field.errors %}<p class="field-error">{{ error }}</p>{% endfor %}
+            </div>
+        {% endfor %}
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </form>
+    <p class="form-footer">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
+</div>
+{% endblock %}

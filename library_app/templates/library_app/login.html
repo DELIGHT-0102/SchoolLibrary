@@ -1,0 +1,49 @@
+{% extends 'library_app/base.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+
+{% block content %}
+
+<div class="form-card">
+
+    <h1>Login</h1>
+
+
+    {% if error %}
+
+        <p class="error">{{ error }}</p>
+
+    {% endif %}
+
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <p> <label>surname:</label><input  
+             type="text" name="username" required>
+        
+        </p>
+
+
+        <p> <label>Password:</label>
+            <input type="password" name="password" required> 
+        </p>
+
+
+        <button type="submit" class="button" >Login</button>
+
+    </form>
+
+
+    <p>
+        Don't have an account?
+        <a href="{% url 'register' %}"> Register </a>
+    </p>
+
+</div>
+
+{% endblock %}

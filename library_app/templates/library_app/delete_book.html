@@ -1,0 +1,34 @@
+{% extends 'library_app/base.html' %}
+
+{% block title %}
+Delete Book
+{% endblock %}
+
+
+{% block content %}
+
+<div class="form-card">
+
+    <h1>
+        Delete Book
+    </h1>
+
+    <p>
+        Are you sure you want to delete
+        "<strong>{{ book.title }}</strong>"?
+    </p>
+
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <button type="submit" class="delete-button" > Yes, Delete </button>
+
+        <a href="{% url 'book_detail' book.id %} "class="cancel-button">Cancel</a>
+
+    </form>
+
+</div>
+
+{% endblock %}

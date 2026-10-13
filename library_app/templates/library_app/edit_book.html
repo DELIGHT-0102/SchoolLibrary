@@ -1,0 +1,28 @@
+{% extends 'library_app/base.html' %}
+
+{% block title %}
+Edit Book
+{% endblock %}
+
+
+{% block content %}
+
+<div class="form-card">
+
+    <h1>
+        Edit {{ book.title }}
+    </h1>
+
+    <form method="POST"enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="button">Save Changes</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

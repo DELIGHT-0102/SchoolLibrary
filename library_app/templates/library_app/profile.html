@@ -1,0 +1,29 @@
+{% extends 'library_app/base.html' %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+
+{% block content %}
+
+<div class="profile-card">
+
+    <h1>
+        Welcome, {{ user.username }}!
+    </h1>
+
+    <p> You are logged in to the School Library.</p>
+
+
+    <a href="{% url 'book_list' %}" class="button">View Books</a>
+
+
+    <a href="{% url 'add_book' %}"class="button"> Add Book</a>
+
+
+    <a href="{% url 'logout' %}" class="delete-button">Logout</a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'library_app/base.html' %}
+
+{% block title %}
+Home - School Library
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <h1>
+        Welcome to Our School Library!
+    </h1>
+
+    <p>
+        Find your favorite books and discover
+        something new to read.
+    </p>
+
+    <p>
+        Explore our collection of books for
+        learning, entertainment and discovery.
+    </p>
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Available</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.category }}</td>
+            <td>{{ book.description }}</td>
+            <td>{{ book.available }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{% url 'book_list' %} "class="button"> All Books</a>
+
+</section>
+
+{% endblock %}
